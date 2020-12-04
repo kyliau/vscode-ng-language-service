@@ -27,8 +27,22 @@
         "command": "angular.openLogFile",
         "title": "Open Angular Server log",
         "category": "Angular"
+      },
+      {
+        "command": "angular.getTemplateTcb",
+        "title": "View Template Typecheck Block",
+        "category": "Angular"
       }
     ],
+    "menus": {
+      "editor/context": [
+        {
+          "when": "resourceLangId == html || resourceLangId == typescript",
+          "command": "angular.getTemplateTcb",
+          "group": "3_compare"
+        }
+      ]
+    },
     "configuration": {
       "title": "Angular Language Service",
       "properties": {
@@ -138,7 +152,7 @@
     "test:syntaxes": "yarn compile:syntaxes-test && yarn build:syntaxes && jasmine dist/syntaxes/test/driver.js"
   },
   "dependencies": {
-    "@angular/language-service": "11.2.0-rc.0",
+    "@angular/language-service": "11.2.0",
     "typescript": "~4.1.0",
     "vscode-jsonrpc": "6.0.0",
     "vscode-languageclient": "7.0.0",
