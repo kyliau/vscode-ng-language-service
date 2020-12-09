@@ -15,7 +15,12 @@ module.exports = [
       'vscode-languageclient',
     ],
     plugins: [
-      commonjs(),
+      commonjs({
+        ignore: [
+          // leave require statements unconverted.
+          'conditional-runtime-dependency',
+        ],
+      }),
     ],
   },
   {
